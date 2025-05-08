@@ -7,8 +7,22 @@ In dieser Gruppenarbeit wurde eine persönliche oder projektbezogene Website mit
 ## Links zur Validierung
 
 - **HTML-Validator**: [W3C HTML Check](https://validator.w3.org/nu/?doc=URL_EINTRAGEN)
+  - [HTML Checker des Repos](https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fwikonire.github.io%2FTEKO-ssg-11ty%2F) 
 - **CSS-Validator**: [W3C CSS Check](https://jigsaw.w3.org/css-validator/validator?uri=URL_EINTRAGEN)
+  - <p>CSS ist valide!
+    <a href="https://jigsaw.w3.org/css-validator/validator?uri=https://wikonire.github.io/TEKO-ssg-11ty/">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="CSS ist valide!" />
+    </a><a href="https://jigsaw.w3.org/css-validator/validator?uri=https://wikonire.github.io/TEKO-ssg-11ty/">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+            alt="CSS ist valide!" />
+    </a>
+</p>
+
 - **Ecograder**: Screenshot siehe unten
+
 
 ## Screenshot: Ecograder
 
