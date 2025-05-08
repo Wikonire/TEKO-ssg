@@ -2,9 +2,6 @@
 node_modules/
 
 # Build output
-dist/
-build/
-tmp/
 out-tsc/
 
 # IDE-specific folders
