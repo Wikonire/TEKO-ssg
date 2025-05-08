@@ -42,3 +42,11 @@ package-lock.json
 # Editor-spezifisch
 .vscode/
 *.swp
+
+# Build output (standardmässig bei 11ty)
+_site/
+dist/
+build/
+tmp/
+output/
+out-tsc/  # nur nötig, falls TypeScript vorkommt
