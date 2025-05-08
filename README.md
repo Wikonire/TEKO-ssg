@@ -16,16 +16,19 @@ In dieser Gruppenarbeit wurde eine persönliche oder projektbezogene Website mit
 
 ## Variantenentscheide im Überblick
 
-- Gewählter SSG: *Name*
-- Gewähltes Deployment/Hosting: *Name*
+- Gewählter SSG: *Diese Version wurde mit 11ty ([Eleventy](https://www.11ty.dev/)) gebaut.*
+  - 11ty wurde gewählt, weil es leichtgewichtig, Markdown-freundlich und sehr gut für barrierefreie, statische Seiten geeignet ist.
+- Gewähltes Deployment/Hosting: *GitHub Pages (automatisiert via GitHub Actions)*
+  - Die Seite wird bei jedem Push in den master-Branch automatisch gebaut und aus dem generierten _site-Ordner im gh-pages-Branch veröffentlicht. GitHub Pages ist kostenlos, zuverlässig und ideal für statische Inhalte.
 - Wichtigste Begründungen: siehe jeweilige Dokumente
 
 ## Quellen und Hilfsmittel
 
 - W3C: [HTML Living Standard](https://html.spec.whatwg.org/)
 - CSS Validation Service: [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
+- W3Schools: [https://www.w3schools.com/graphics/game_intro.asp](https://www.w3schools.com/graphics/game_intro.asp)
 - SSG-Doku: *Link zur offiziellen Doku*
-- KI-Unterstützung: z. B. ChatGPT für Strukturierungshilfe (siehe Hinweis unten)
+- KI-Unterstützung: z.Bsp. ChatGPT für Strukturierungshilfe (siehe Hinweis unten)
 
 **Hinweis**: KI-gestützte Texte wurden mit *[Toolname]* generiert und nachträglich überprüft und überarbeitet.
 
