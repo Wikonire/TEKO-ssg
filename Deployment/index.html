@@ -1,44 +1,68 @@
 <h1>Deployment und Hosting</h1>
-<h2>Evaluierte Optionen</h2>
-<ul>
-<li>
-<p><strong>GitHub Pages</strong></p>
-<ul>
-<li>Kostenlos, direkt mit Git integrierbar<br>
-− Eingeschränkte Build-Optionen</li>
-</ul>
-</li>
-<li>
-<p><strong>Netlify</strong></p>
-<ul>
-<li>CI/CD out of the box, HTTPS, einfaches Setup<br>
-− Begrenzte freie Nutzung</li>
-</ul>
-</li>
-<li>
-<p><strong>Vercel</strong></p>
-<ul>
-<li>Optimiert für SSGs wie Next.js, automatische Deployments<br>
-− Account notwendig</li>
-</ul>
-</li>
-</ul>
-<h2>Variantenentscheid</h2>
-<p><strong>Gewählt wurde:</strong> <em>[Hosting-Anbieter]</em><br>
-<strong>Begründung:</strong></p>
-<ul>
-<li><em>Direkte Git-Anbindung</em></li>
-<li><em>Automatische Deployments bei Push</em></li>
-<li><em>Gute Performance und Ecograder-kompatibel</em></li>
-</ul>
+<h2>Gewählter Hosting-Anbieter</h2>
+<p><strong>GitHub Pages</strong> – ideal für statische Websites, direkt integrierbar mit GitHub Actions, kostenlos und zuverlässig. Die Seite wird automatisch aus dem Build-Ordner <code>_site/</code> veröffentlicht, der durch Eleventy generiert wird.</p>
 <h2>Deployment-Prozess</h2>
+<p>Das Deployment erfolgt automatisch via <strong>GitHub Actions</strong>. Der Workflow wird bei jedem Push auf den Branch <code>master</code> ausgelöst. Dabei wird die Seite mit Eleventy gebaut und der generierte Ordner <code>_site/</code> in den Branch <code>gh-pages</code> veröffentlicht.</p>
+<h3>Workflow-Datei: <code>.github/workflows/deploy.yml</code></h3>
+<pre><code class="language-yaml">name: Deploy Eleventy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Eleventy Site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: $
+          publish_dir: ./_site
+</code></pre>
+<hr>
+<h2>Problem beim ersten Deployment</h2>
+<p>Beim ersten Ausführen des Workflows trat folgender Fehler auf:</p>
+<pre><code>remote: Permission to Wikonire/TEKO-ssg-11ty.git denied to github-actions[bot].
+fatal: unable to access 'https://github.com/Wikonire/TEKO-ssg-11ty.git/': The requested URL returned error: 403
+Error: Action failed with &quot;The process '/usr/bin/git' failed with exit code 128&quot;
+</code></pre>
+<h3>Ursache</h3>
+<p>GitHub Actions verwendet ein internes Zugriffstoken (<code>GITHUB_TOKEN</code>) zum Pushen in das Repository. Standardmässig hat dieses Token <strong>nur Leserechte</strong>, was das Schreiben in den Branch <code>gh-pages</code> verhinderte.</p>
+<hr>
+<h2>Lösung</h2>
+<p>Die Berechtigung wurde wie folgt angepasst:</p>
 <ol>
-<li>GitHub Repository erstellt</li>
-<li>Build-Konfiguration im Hosting-Tool eingerichtet</li>
-<li>Automatisches Deployment bei jedem Commit</li>
+<li>GitHub Repository öffnen → <strong>Settings</strong> &gt; <strong>Actions</strong> &gt; <strong>General</strong></li>
+<li>Abschnitt <strong>&quot;Workflow permissions&quot;</strong></li>
+<li>Option <strong>„Read and write permissions“</strong> aktivieren</li>
+<li>Änderungen speichern</li>
+<li>Workflow erneut ausführen</li>
 </ol>
+<p>→ Danach konnte der Bot den Branch <code>gh-pages</code> korrekt erstellen und die Website wurde veröffentlicht.</p>
+<hr>
+<h2>Empfehlung</h2>
+<p>Für automatisiertes Deployment mit <code>peaceiris/actions-gh-pages</code> sollte <strong>immer die Schreibberechtigung für <code>GITHUB_TOKEN</code> aktiviert werden</strong>. Diese Einstellung ist notwendig, damit GitHub Actions den Veröffentlichungsbranch verwalten kann.</p>
+<hr>
 <h2>Quellen</h2>
 <ul>
-<li><em>Offizielle Doku des Hosting-Anbieters</em></li>
-<li><em>Artikel oder Tutorials, falls verwendet</em></li>
+<li>Quick Start von 11ty.dev: https://www.11ty.dev/#quick-start</li>
+<li>GitHub Actions Doku: https://docs.github.com/actions</li>
+<li>peaceiris/actions-gh-pages: https://github.com/peaceiris/actions-gh-pages</li>
 </ul>
