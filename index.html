@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-    <title>Übung zu Static Site Generation - Version 11ty</title>
+    <meta charset="UTF-8">
+    <title>Übung zu Static Site Generation – Version 11ty</title>
 </head>
 <body>
 <h1>Willkommen zur Übung-Website zu 11ty</h1>
-<p>Das ist eine Projekt im Rahmen der Ausbildung an der TEKO Bern</p>
+<p>Das ist ein Projekt im Rahmen der Ausbildung an der TEKO Bern</p>
+
+<h2>JavaScript Game Beispiel</h2>
+<script src="./js/game.js"></script>
+
+<button onclick="startGame()">Start</button>
+<button onmousedown="moveup()" onmouseup="stopMove()">UP</button>
+<button onmousedown="movedown()" onmouseup="stopMove()">DOWN</button>
+<button onmousedown="moveleft()" onmouseup="stopMove()">LEFT</button>
+<button onmousedown="moveright()" onmouseup="stopMove()">RIGHT</button>
 </body>
 </html>
-
