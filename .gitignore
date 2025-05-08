@@ -38,3 +38,7 @@ coverage/
 
 # Lockfiles
 package-lock.json
+
+# Editor-spezifisch
+.vscode/
+*.swp
