@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+tmp/
+out-tsc/
+
+# IDE-specific folders
+.idea/
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Optional: allow specific parts of .idea if wirklich nötig
+# !.idea/codeStyles/
+# !.idea/inspectionProfiles/
+# !.idea/modules.xml
+
+# Angular specific (falls zutreffend)
+.angular/cache/
+.angular/config.json
+
+# Coverage reports
+coverage/
