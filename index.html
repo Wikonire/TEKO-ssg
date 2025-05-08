@@ -2,19 +2,65 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Übung zu Static Site Generation – Version 11ty</title>
 </head>
 <body>
-<h1>Willkommen zur Übung-Website zu 11ty</h1>
-<p>Das ist ein Projekt im Rahmen der Ausbildung an der TEKO Bern</p>
+<header>
+    <h1>Willkommen zur Übung-Website zu 11ty</h1>
+    <p>Das ist ein Projekt im Rahmen der Ausbildung an der TEKO Bern</p>
+</header>
 
-<h2>JavaScript Game Beispiel</h2>
-<script src="./js/game.js"></script>
+<main>
+    <section aria-labelledby="spiel-titel">
+        <h2 id="spiel-titel">JavaScript Game Beispiel</h2>
 
-<button onclick="startGame()">Start</button>
-<button onmousedown="moveup()" onmouseup="stopMove()">UP</button>
-<button onmousedown="movedown()" onmouseup="stopMove()">DOWN</button>
-<button onmousedown="moveleft()" onmouseup="stopMove()">LEFT</button>
-<button onmousedown="moveright()" onmouseup="stopMove()">RIGHT</button>
+        <div role="group" aria-label="Steuerung für das Spiel">
+            <button onclick="startGame()" aria-label="Spiel starten">Start</button>
+
+            <button
+                    onmousedown="moveup()"
+                    onmouseup="stopMove()"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){moveup()}"
+                    onkeyup="stopMove()"
+                    aria-label="Nach oben bewegen">
+                UP
+            </button>
+
+            <button
+                    onmousedown="movedown()"
+                    onmouseup="stopMove()"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){movedown()}"
+                    onkeyup="stopMove()"
+                    aria-label="Nach unten bewegen">
+                DOWN
+            </button>
+
+            <button
+                    onmousedown="moveleft()"
+                    onmouseup="stopMove()"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){moveleft()}"
+                    onkeyup="stopMove()"
+                    aria-label="Nach links bewegen">
+                LEFT
+            </button>
+
+            <button
+                    onmousedown="moveright()"
+                    onmouseup="stopMove()"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){moveright()}"
+                    onkeyup="stopMove()"
+                    aria-label="Nach rechts bewegen">
+                RIGHT
+            </button>
+        </div>
+
+        <noscript>
+            <p>Dieses Spiel benötigt JavaScript. Bitte aktivieren Sie JavaScript in Ihrem Browser.</p>
+        </noscript>
+    </section>
+</main>
+
+<script src="./js/game.js" defer></script>
 </body>
 </html>
