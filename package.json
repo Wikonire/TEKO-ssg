@@ -4,7 +4,8 @@
   "description": "In dieser Gruppenarbeit wurde eine persönliche oder projektbezogene Website mit einem Static Site Generator (SSG) erstellt, barrierefrei gestaltet und automatisiert deployed.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "eleventy"
   },
   "repository": {
     "type": "git",
